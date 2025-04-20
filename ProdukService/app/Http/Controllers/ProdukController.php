@@ -54,7 +54,7 @@ class ProdukController extends Controller
             'mitra_id' => 'required|integer'
         ]);
 
-        // Ambil data petani
+        // Ambil data mitra
         $mitra = Http::get($this->urlMitra . '/' . $request->mitra_id);
 
         if ($mitra->failed()) {
@@ -91,12 +91,12 @@ class ProdukController extends Controller
             'mitra_id' => 'required|integer'
         ]);
 
-        // Ambil data petani
-        $mitra = Http::post($this->urlMitra . '/' . $request->mitra_id);
+        // Ambil data mitra
+        $mitra = Http::get($this->urlMitra . '/' . $request->mitra_id);
 
         if ($mitra->failed()) {
             // Log error atau kembalikan response error yang lebih spesifik
-            return response()->json(['message' => 'Mitra tidak ditemukan atau ada masalah dengan API Petani'], 500);
+            return response()->json(['message' => 'Mitra tidak ditemukan atau ada masalah dengan API Mitra'], 500);
         }
 
         $produk->update($validated);
