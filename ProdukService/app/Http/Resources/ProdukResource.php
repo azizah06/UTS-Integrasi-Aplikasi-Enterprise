@@ -20,7 +20,7 @@ class ProdukResource extends JsonResource
     {
         // Ambil data mitra dari API mitra
         $mitra = Http::get($this->urlMitra . '/' . $this->mitra_id);
-        $namaMitra = $mitra->successful() ? $mitra->json('data.nama') : null;
+        $namaMitra = $mitra->successful() ? $mitra->json('data.nama_mitra') : null;
 
         return [
             'id' => $this->id,
