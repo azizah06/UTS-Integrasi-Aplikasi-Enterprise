@@ -30,5 +30,8 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'mitra_service' => [
+        'base_url' => env('MITRA_SERVICE_URL', 'http://localhost:8003/api/mitra'),
+    ],
 
 ];

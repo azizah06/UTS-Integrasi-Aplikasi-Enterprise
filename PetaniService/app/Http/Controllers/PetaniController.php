@@ -10,9 +10,7 @@ use Illuminate\Validation\ValidationException;
 
 class PetaniController extends Controller
 {
-    /**
-     * Tampilkan semua petani.
-     */
+
     public function index()
     {
         $petani = Petani::all();
@@ -23,9 +21,6 @@ class PetaniController extends Controller
         ], 200);
     }
 
-    /**
-     * Tampilkan satu petani berdasarkan ID.  
-     */
     public function show($id)
     {
         $petani = Petani::find($id);
@@ -42,9 +37,6 @@ class PetaniController extends Controller
         ], 200);
     }
 
-    /**
-     * Tambah petani baru.
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -61,9 +53,6 @@ class PetaniController extends Controller
         ], 201);
     }
 
-    /**
-     * Update data petani berdasarkan ID.
-     */
     public function update(Request $request, $id)
     {
         try {
@@ -93,9 +82,6 @@ class PetaniController extends Controller
         ], 200);
     }
 
-    /**
-     * Hapus petani berdasarkan ID.
-     */
     public function destroy($id)
     {
         $petani = Petani::find($id);
@@ -112,9 +98,6 @@ class PetaniController extends Controller
             'message' => 'Data Petani berhasil dihapus'
         ], 200);
     }
-    public function riwayatTransaksi($id) {
-        $res = Http::get('http://127.0.0.1:8002/api/transaksi/petani/' . $id);
-        return response()->json(json_decode($res), $res->status());
-    }
+
     
 }

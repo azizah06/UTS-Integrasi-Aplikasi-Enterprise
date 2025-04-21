@@ -10,7 +10,6 @@ use Illuminate\Validation\ValidationException;
 
 class ProdukController extends Controller
 {
-    protected $urlMitra = 'http://127.0.0.1:8003/api/mitra';
 
     public function index()
     {
@@ -55,7 +54,7 @@ class ProdukController extends Controller
         ]);
 
         // Ambil data mitra
-        $mitra = Http::get($this->urlMitra . '/' . $request->mitra_id);
+        $mitra = Http::get(config('services.mitra_service.base_url') . '/' . $request->mitra_id);
 
         if ($mitra->failed()) {
             // Log error atau kembalikan response error yang lebih spesifik
@@ -92,7 +91,7 @@ class ProdukController extends Controller
         ]);
 
         // Ambil data mitra
-        $mitra = Http::get($this->urlMitra . '/' . $request->mitra_id);
+        $mitra = Http::get(config('services.mitra_service.base_url') . '/' . $request->mitra_id);
 
         if ($mitra->failed()) {
             // Log error atau kembalikan response error yang lebih spesifik
