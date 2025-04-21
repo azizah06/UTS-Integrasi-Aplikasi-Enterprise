@@ -1,0 +1,53 @@
+# API Dokumentasi - Layanan Petani
+
+**Base URL:** `http://127.0.0.1:8000/api/petani`
+
+## Endpoints
+
+### GET /api/petani
+- **Deskripsi**: Mengambil semua data petani.
+- **Response**: `200 OK`
+```json
+[
+  {
+    "id": 1,
+    "nama": "Andi",
+    "alamat": "Bandung"
+  }
+]
+```
+
+---
+
+### GET /api/petani/{id}
+- **Deskripsi**: Mengambil detail petani berdasarkan ID.
+- **Response**:
+  - `200 OK`
+  - `404 Not Found`
+
+---
+
+### POST /api/petani
+- **Deskripsi**: Menambahkan data petani baru.
+- **Request Body**:
+```json
+{
+  "nama": "Andi",
+  "alamat": "Bandung"
+}
+```
+- **Response**: `201 Created`
+
+---
+
+### PUT /api/petani/{id}
+- **Deskripsi**: Memperbarui data petani berdasarkan ID.
+- **Request Body**: Sama seperti POST
+- **Response**: `200 OK`
+
+---
+
+### DELETE /api/petani/{id}
+- **Deskripsi**: Menghapus data petani.
+- **Response**: `200 OK`
+
